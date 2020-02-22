@@ -46,10 +46,17 @@ class MyHomePage extends StatelessWidget {
 
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           SizedBox(
+            width: 350,
+            height: 100,
             child: RaisedButton(
+              color: Color(0xFFFFFFFF),
+              shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(18.0),
+                  side: BorderSide(color: Color(0xFFCBB6D4)),
+              ),
               onPressed: () {
                 Navigator.push(
                   context,
@@ -59,27 +66,47 @@ class MyHomePage extends StatelessWidget {
               child: Text('Grounding'),
             ),
           ),
-
-
-          RaisedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HelplineRoute()),
-              );
-            },
-            child: Text('Helplines'),
+          SizedBox(
+            height:40,
+            width: double.infinity,
           ),
-          RaisedButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => EmergencyRoute()),
-              );
-            },
-            child: Text('Emergency Resources'),
+          SizedBox(
+            width: 350,
+            height: 100,
+            child: RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HelplineRoute()),
+                );
+              },
+              child: Text('Helplines'),
+            ),
           ),
-          RaisedButton(
+        SizedBox(
+          height:40,
+        ),
+          SizedBox(
+            width:350,
+            height: 100,
+            child: RaisedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => EmergencyRoute()),
+                );
+              },
+              child: Text('Emergency Resources'),
+            ),
+          ),
+          SizedBox(
+            height:40,
+            width: double.infinity,
+          ),
+          SizedBox(
+            width: 350,
+            height: 100,
+            child: RaisedButton(
             onPressed: () {
               Navigator.push(
                 context,
@@ -87,6 +114,7 @@ class MyHomePage extends StatelessWidget {
               );
             },
             child: Text('Support'),
+          ),
           ),
 
         ],

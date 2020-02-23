@@ -17,6 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
+  intent: ^1.1.0
   flutter:
     sdk: flutter
 
@@ -25,12 +26,14 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  url_launcher: ^5.4.2
+  google_maps_flutter: ^0.5.24
   flutter_launcher_icons: ^0.7.3
   flutter_test:
     sdk: flutter
 
 flutter_icons:
-  image_path: "assets/icon.png"
+  image_path: "/Users/reem/Desktop/pear/build/flutter_assets/pearlogo2.png"
   ios: true
   android: true
 
@@ -39,6 +42,7 @@ flutter_icons:
 
 # The following section is specific to Flutter.
 flutter:
+
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'fake.dart';
+import 'whatdo.dart';
+import 'whatdid.dart';
 
 class ImageBanner extends StatelessWidget {
   final String _assetPath;
@@ -336,7 +338,6 @@ class FeelBetter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Feel Better?"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.favorite_border),
@@ -354,27 +355,38 @@ class FeelBetter extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Column(
+          Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget> [
-
               Container(
-                width: 500,
+                width: 150,
                 height:150,
-                child: ImageBanner("/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/buh.png"),
+                child: SizedBox(
+                    child: RaisedButton(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(400.0),
+                          side: BorderSide(color: Color(0xFFCBB6D4), width: 1),
+                        ),
+                        child: ImageBanner("/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/hp8.png"),
+                        onPressed: () {}
+                    )
+                ),
               ),
+              Text("    Feel Better?",
+                style: TextStyle(
+                  color: Color(0xFFCBB6D4),
+                ), textAlign: TextAlign.center,),
             ],
           ),
-
           SizedBox(
-            height: 20,
+            height:40,
             width: double.infinity,
-
           ),
-          Text( "We hope you’re feeling better. \n If something just happened and you don’t know what to do, \n click “What do I do Next?” to learn what steps \n you should take after recent trauma", style: TextStyle(
+          Text( "We hope you’re feeling better. If something just happened \n and you don’t know what to do, click “What do I do Next?” \n to learn what steps you should take after recent trauma", style: TextStyle(
             color: Color(0xFF908383), fontSize: 14, ),textAlign: TextAlign.center,),
           SizedBox(
-            height:10,
+            height:40,
             width: double.infinity,
           ),
           Container(
@@ -395,9 +407,15 @@ class FeelBetter extends StatelessWidget {
                       ),textAlign: TextAlign.center,
 
                     ) ,
-                    onPressed: () {}
+                    onPressed: () {
+                      showAlertDialog(context);
+                    }
                 )
             ),
+          ),
+          SizedBox(
+            height:40,
+            width: double.infinity,
           ),
 
           RaisedButton(
@@ -412,7 +430,10 @@ class FeelBetter extends StatelessWidget {
                     color: Color(0xFFFFFFFF),
                   )),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => GroundingRoute())
+                );
               }
           ),
         ],
@@ -420,4 +441,76 @@ class FeelBetter extends StatelessWidget {
       )
     );
   }
+
+  showAlertDialog(BuildContext context) {
+
+    // set up the buttons
+    Widget cancelButton = FlatButton(
+      child: Text("Cancel"),
+      onPressed:  () {
+        Navigator.of(context).pop();
+      },
+    );
+
+    // set up the AlertDialog
+    AlertDialog alert = AlertDialog(
+      title: Text("WHAT HAPPENED?"),
+      content: Row(
+          children: <Widget> [
+            RaisedButton(
+                color: Color(0xFFCBB6D4),
+                shape: RoundedRectangleBorder(
+
+                  borderRadius: new BorderRadius.circular(18.0),
+                  side: BorderSide(color: Color(0xFFCBB6D4)),
+                ),
+                child: Text('SA',
+                    style: TextStyle(
+                      color: Color(0xFFFFFFFF),
+                    )),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Whatdo()),
+                  );
+                }
+            ),
+            SizedBox(
+              width: 20,
+              height: 20,
+            ),
+            RaisedButton(
+                color: Color(0xFFCBB6D4),
+                shape: RoundedRectangleBorder(
+
+                  borderRadius: new BorderRadius.circular(18.0),
+                  side: BorderSide(color: Color(0xFFCBB6D4)),
+                ),
+                child: Text('SH',
+                    style: TextStyle(
+                      color: Color(0xFFFFFFFF),
+                    )),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Whatdid()),
+                  );
+                }
+            ),
+          ]
+          ),
+      actions: [
+        cancelButton,
+      ],
+    );
+
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
 }

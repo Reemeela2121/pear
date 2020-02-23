@@ -40,14 +40,28 @@ class SupportRoute extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Column(
+          Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget> [
               Container(
-                width: 500,
+                width: 150,
                 height:150,
-                child: ImageBanner("/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/support_buddy.png"),
+                child: SizedBox(
+                    child: RaisedButton(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(400.0),
+                          side: BorderSide(color: Color(0xFFCBB6D4), width: 1),
+                        ),
+                        child: ImageBanner("/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/support_buddy.png"),
+                        onPressed: () {}
+                    )
+                ),
               ),
+              Text("    S U P P O R T I N G  O T H E R S",
+                style: TextStyle(
+                  color: Color(0xFFCBB6D4),
+                ), textAlign: TextAlign.center,),
             ],
           ),
 

@@ -1,25 +1,25 @@
 import 'package:flutter/material.dart';
 import 'fake.dart';
 
-class Faq extends StatelessWidget {
+class Whatdo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        actions: <Widget>[
-          IconButton(
-            icon: Icon(Icons.favorite_border),
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => FakeRoute())
-              );
-            },
+        appBar: AppBar(
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.favorite_border),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FakeRoute())
+                );
+              },
 
-          )
+            )
 
-        ],
-      ),
+          ],
+        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -85,7 +85,7 @@ class Faq extends StatelessWidget {
                 fontSize: 16,
               ),textAlign: TextAlign.center,),
             Text( "the Private Emergency-Assisted Response App. \n This application is specifically designed to help \n survivors of sexual violence accessibly navigate different resources with ease.", style: TextStyle(
-                color: Color(0xFF908383), fontSize: 14, ),textAlign: TextAlign.center,),
+              color: Color(0xFF908383), fontSize: 14, ),textAlign: TextAlign.center,),
             SizedBox(
               height:10,
               width: double.infinity,

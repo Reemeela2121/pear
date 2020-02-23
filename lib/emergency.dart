@@ -6,7 +6,6 @@ class EmergencyRoute extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Emergency Resources"),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.favorite_border),
@@ -24,10 +23,29 @@ class EmergencyRoute extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget> [
-          Container(
-            width: 500,
-            height:200,
-            child: ImageBanner("/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/caleria3.png"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget> [
+              Container(
+                width: 150,
+                height:150,
+                child: SizedBox(
+                    child: RaisedButton(
+                        color: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: new BorderRadius.circular(400.0),
+                          side: BorderSide(color: Color(0xFFCBB6D4), width: 1),
+                        ),
+                        child: ImageBanner("/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/hp4.png"),
+                        onPressed: () {}
+                    )
+                ),
+              ),
+              Text("    E M E R G E N C Y  R E S O U R C E S",
+                style: TextStyle(
+                  color: Color(0xFFCBB6D4),
+                ), textAlign: TextAlign.center,),
+            ],
           ),
           Container(
             height: 50,

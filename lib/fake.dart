@@ -37,7 +37,7 @@ class FakeRoute extends StatelessWidget {
           width: double.infinity,
           height: double.infinity,
           //color: Colors.transparent,
-          child: ImageBanner("/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/grubby.png"),
+          child: ImageBanner("/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/grubby.PNG"),
         ),
       ),
     );

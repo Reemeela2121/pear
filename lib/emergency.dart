@@ -1,5 +1,44 @@
 import 'package:flutter/material.dart';
 import 'fake.dart';
+import 'angela.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart' as URLauncher;
+import 'dart:convert';
+
+class HelpScreen extends StatefulWidget {
+  @override
+  HelpScreenState createState() {
+    return HelpScreenState();
+  }
+}
+
+class HelpScreenState extends State<HelpScreen> {
+  WebViewController _controller;
+
+  @override
+  Widget build(BuildContext context) {
+    _loadHtmlFromAssets();
+    return Scaffold(
+      appBar: AppBar(title: Text('Safe Routes')),
+      body: WebView(
+        initialUrl: 'about:blank',
+        onWebViewCreated: (WebViewController webViewController) {
+          _controller = webViewController;
+        },
+      ),
+    );
+  }
+
+  _loadHtmlFromAssets() async {
+    String fileText = await rootBundle.loadString('/Users/reem/Desktop/pear/ios/Flutter/App.framework/flutter_assets/help.html');
+    _controller.loadUrl( Uri.dataFromString(
+        fileText,
+        mimeType: 'text/html',
+        encoding: Encoding.getByName('utf-8')
+    ).toString());
+  }
+}
 
 class EmergencyRoute extends StatelessWidget {
   @override
@@ -74,7 +113,11 @@ class EmergencyRoute extends StatelessWidget {
                     color: Color(0xFFFFFFFF),
                   )),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HelpScreen())
+                );
+
               }
           ),
           Container(
@@ -93,6 +136,27 @@ class EmergencyRoute extends StatelessWidget {
                   )),
               onPressed: () {
                 Navigator.pop(context);
+              }
+          ),
+          Container(
+            height: 50,
+          ),
+          RaisedButton(
+              color: Color(0xFFCBB6D4),
+              shape: RoundedRectangleBorder(
+
+                borderRadius: new BorderRadius.circular(18.0),
+                side: BorderSide(color: Color(0xFFCBB6D4)),
+              ),
+              child: Text('C A L L  A N G E L A',
+                  style: TextStyle(
+                    color: Color(0xFFFFFFFF),
+                  )),
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ExampleApp())
+                );
               }
           ),
         ],

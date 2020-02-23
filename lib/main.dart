@@ -7,6 +7,8 @@ import 'fake.dart';
 import 'faq.dart';
 import 'package:url_launcher/url_launcher.dart' as URLauncher;
 
+import 'package:audioplayers/audio_cache.dart';
+
 
 class ImageBanner extends StatelessWidget {
   final String _assetPath;

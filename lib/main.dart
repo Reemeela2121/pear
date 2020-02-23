@@ -5,6 +5,8 @@ import 'helplines.dart';
 import 'support.dart';
 import 'fake.dart';
 import 'faq.dart';
+import 'package:url_launcher/url_launcher.dart' as URLauncher;
+
 
 class ImageBanner extends StatelessWidget {
   final String _assetPath;
@@ -400,7 +402,7 @@ class MyHomePage extends StatelessWidget {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                URLauncher.launch('https://turnaroundinc.org/');
               },
             ),
             ListTile(
@@ -410,7 +412,7 @@ class MyHomePage extends StatelessWidget {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                URLauncher.launch('https://www.rainn.org/');
               },
             ),
             ListTile(
@@ -420,7 +422,7 @@ class MyHomePage extends StatelessWidget {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-                Navigator.pop(context);
+                URLauncher.launch('https://www2.ed.gov/about/offices/list/ocr/docs/tix_dis.html');
               },
             ),
             ListTile(
@@ -430,7 +432,7 @@ class MyHomePage extends StatelessWidget {
                 // Update the state of the app
                 // ...
                 // Then close the drawer
-
+                URLauncher.launch('https://github.com/pear-pearlhacks/pear/wiki/FAQ,-Links,-Information');
               },
             ),
           ],
